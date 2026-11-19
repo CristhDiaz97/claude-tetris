@@ -4,8 +4,31 @@
   padding: 0;
 }
 
+/* ---- Skins: variables por tema ---- */
+:root, body[data-skin="retro"] {
+  --page-bg: #0f0f17;
+  --canvas-bg: #1a1a25;
+  --canvas-border: #2a2a3a;
+}
+body[data-skin="neon"] {
+  --page-bg: #000000;
+  --canvas-bg: #000000;
+  --canvas-border: #00f5ff;
+}
+body[data-skin="pastel"] {
+  --page-bg: #f3eef8;
+  --canvas-bg: #fffafc;
+  --canvas-border: #d8c8e8;
+  color: #4a4458;
+}
+body[data-skin="pixel"] {
+  --page-bg: #1d2b53;
+  --canvas-bg: #0b1030;
+  --canvas-border: #5f574f;
+}
+
 body {
-  background: #0f0f17;
+  background: var(--page-bg);
   color: #e0e0e0;
   font-family: system-ui, -apple-system, sans-serif;
   display: flex;
@@ -27,8 +50,8 @@ body {
 
 #board {
   display: block;
-  border: 1px solid #2a2a3a;
-  background: #1a1a25;
+  border: 1px solid var(--canvas-border);
+  background: var(--canvas-bg);
   border-radius: 4px;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
 }
@@ -65,8 +88,8 @@ body {
 
 #next-canvas {
   display: block;
-  border: 1px solid #2a2a3a;
-  background: #1a1a25;
+  border: 1px solid var(--canvas-border);
+  background: var(--canvas-bg);
   border-radius: 4px;
 }
 
@@ -149,4 +172,13 @@ kbd {
 
 #restart-btn:hover {
   background: #9bbdff;
+}
+
+#skin-select {
+  background: #22223a;
+  color: #ccc;
+  border: 1px solid #3a3a5a;
+  border-radius: 4px;
+  padding: 4px 6px;
+  font-size: 12px;
 }

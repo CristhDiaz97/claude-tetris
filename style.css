@@ -150,3 +150,17 @@ kbd {
 #restart-btn:hover {
   background: #9bbdff;
 }
+
+/* ---- Menú de pausa ---- */
+.pause-view { display: flex; flex-direction: column; gap: 10px; align-items: stretch; min-width: 190px; }
+.pause-view.hidden { display: none; }
+.pause-title { font-size: 26px; font-weight: 800; letter-spacing: 4px; color: #7aa2f7; text-align: center; margin-bottom: 6px; }
+.menu-btn { background: #22223a; color: #e0e0e0; border: 1px solid #3a3a5a; border-radius: 6px; padding: 10px 20px; font-size: 14px; font-weight: 600; cursor: pointer; letter-spacing: 1px; }
+.menu-btn:hover, .menu-btn:focus-visible { background: #2e2e50; outline: 2px solid #7aa2f7; }
+.menu-btn.primary { background: #7aa2f7; color: #0f0f17; border-color: #7aa2f7; }
+.menu-btn.primary:hover { background: #9bbdff; }
+.menu-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 13px; color: #aaa; padding-top: 6px; }
+.menu-row select { background: #22223a; color: #e0e0e0; border: 1px solid #3a3a5a; border-radius: 4px; padding: 4px 8px; font-size: 14px; }
+.help-list { list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: #aaa; }
+.help-list li { display: flex; align-items: center; gap: 10px; }
+.help-list li span { min-width: 78px; }

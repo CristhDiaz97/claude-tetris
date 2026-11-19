@@ -22,7 +22,7 @@ const Records = (() => {
       const raw = localStorage.getItem(KEY);
       if (!raw) return defaults();
       const d = JSON.parse(raw);
-      const top = Array.isArray(d.top) ? d.top.filter(e => e && typeof e.score === 'number') : [];
+      const top = Array.isArray(d.top) ? d.top.filter(e => e && Number.isFinite(e.score) && typeof e.name === 'string').map(e => ({ name: e.name, score: e.score, lines: Number(e.lines) || 0, date: String(e.date || '') })) : [];
       return {
         top: top.slice(0, TOP),
         bestCombo: Number(d.bestCombo) || 0,
@@ -111,6 +111,7 @@ const Records = (() => {
   }
 
   function onLock(cleared) {
+    if (finished) return;
     if (cleared > 0) {
       combo++;
       if (combo > gameBestCombo) gameBestCombo = combo;
@@ -142,6 +143,7 @@ const Records = (() => {
     if (!ok) return;
     try { localStorage.removeItem(KEY); } catch (e) { /* ignorar */ }
     pending = null;
+    gameBestCombo = 0;
     hideNameBlock();
     render(-1);
   }

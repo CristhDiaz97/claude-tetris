@@ -103,6 +103,7 @@ function clearLines() {
       r++;
     }
   }
+  if (typeof Records !== 'undefined') Records.onLock(cleared);
   if (cleared) {
     lines += cleared;
     score += (LINE_SCORES[cleared] || 0) * level;
@@ -224,6 +225,7 @@ function endGame() {
   overlayTitle.textContent = 'GAME OVER';
   overlayScore.textContent = `Puntuación: ${score.toLocaleString()}`;
   overlay.classList.remove('hidden');
+  if (typeof Records !== 'undefined') Records.onGameOver(score, lines);
 }
 
 function togglePause() {
@@ -266,6 +268,7 @@ function init() {
   dropInterval = 1000;
   dropAccum = 0;
   lastTime = performance.now();
+  if (typeof Records !== 'undefined') Records.onInit();
   next = randomPiece();
   spawn();
   updateHUD();
